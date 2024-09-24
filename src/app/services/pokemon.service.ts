@@ -15,10 +15,10 @@ export class PokemonService {
   }
 
   getPokemons() {
-
     const url = this.nextUrl;
 
     if (url) {
+
       const options = {
         url,
         headers: {},
@@ -48,11 +48,14 @@ export class PokemonService {
           }
 
           await Promise.all(promises).then((responses) => {
+
             console.log(responses);
+
             for (const response of responses) {
+
               const pokemonData = response.data;
               console.log(pokemonData);
-              
+
               const pokemonObj = new Pokemon();
 
               pokemonObj.id = pokemonData.order;
@@ -62,29 +65,31 @@ export class PokemonService {
                 pokemonObj.type2 = pokemonData.types[1].type.name;
               }
 
-              pokemonObj.srpite = pokemonData.srpites.front_default;
+              pokemonObj.sprite = pokemonData.sprites.front_default;
 
               pokemonObj.weight = pokemonData.weight / 10;
-              pokemonObj.height= pokemonData.height / 10;
+              pokemonObj.height = pokemonData.height / 10;
               pokemonObj.stats = pokemonData.stats;
 
-              pokemonObj.abilities = pokemonData.abilities.filter(ab => !ab.is_hidden).map(ab => ab.ability.name);
+              pokemonObj.abilities = pokemonData.abilities
+                .filter((ab) => !ab.is_hidden)
+                .map((ab) => ab.ability.name);
 
-              const hiddenAbility = pokemonData.abilities.find(ab => !ab.is_hidden);
+              const hiddenAbility = pokemonData.abilities.find(
+                (ab) => !ab.is_hidden
+              );
 
-              if(hiddenAbility) {
+              if (hiddenAbility) {
                 pokemonObj.hiddenAbility = hiddenAbility.ability.name;
               }
 
               pokemons.push(pokemonObj);
-
             }
           });
         }
 
         return pokemons;
       });
-
     }
     return null;
   }

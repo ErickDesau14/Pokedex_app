@@ -11,4 +11,5 @@ export class Pokemon {
     abilities: string[];
     hiddenAbility: string;
     stats: Stat[];
+    sprite: any;
 }
