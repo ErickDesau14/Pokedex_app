@@ -4,6 +4,32 @@
 
 <ion-content [fullscreen]="true">
 
+  <ion-card *ngIf="pokemon">
+
+    <ion-img [src]="pokemon.sprite"></ion-img>
+
+    <ion-card-header class="ion-text-center">
+      <ion-card-title class="ion-text-capitalize">{{pokemon.name}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col class="ion-text-center">
+            <ion-text>Tipo</ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-img class="ion-padding-start ion-padding-end" [src]="'assets/img/' + pokemon.type1 + '.gif'"></ion-img>
+          </ion-col>
+          <ion-col>
+            <ion-img *ngIf="pokemon.type2" [src]="'assets/img/' + pokemon.type2 + '.gif'"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+  </ion-card>
+
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button (click)="goBack()">
       <ion-icon name="arrow-back"></ion-icon>
