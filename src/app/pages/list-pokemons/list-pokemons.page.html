@@ -21,4 +21,10 @@
     </ion-row>
   </ion-grid>
 
+  <ion-infinite-scroll threshold="50px" (ionInfinite)="morePokemon($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando...">
+
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

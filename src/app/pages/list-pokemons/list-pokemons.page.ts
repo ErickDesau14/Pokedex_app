@@ -19,7 +19,7 @@ export class ListPokemonsPage implements OnInit {
     this.morePokemon();
   }
 
-  morePokemon() {
+  morePokemon($event = null) {
 
     const promise = this.pokemonService.getPokemons();
 
@@ -29,9 +29,16 @@ export class ListPokemonsPage implements OnInit {
 
         this.pokemons = this.pokemons.concat(result);
         console.log(this.pokemons);
+
+        if ($event) {
+          $event.target.complete();
+        }
         
-        
-      });
+      }).catch( (err) => {
+        if ($event) {
+          $event.target.complete();
+        }
+      })
     }
     
   }
