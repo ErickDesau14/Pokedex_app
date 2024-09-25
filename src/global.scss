@@ -43,6 +43,10 @@ ion-header {
     background-size: cover;
 }
 
+ion-header .header-background {
+    backdrop-filter: none !important;
+}
+
 
 ion-text {
     color: #000;
