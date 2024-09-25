@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DetailPokemonsPageRoutingModule } from './detail-pokemons-routing.module';
 
 import { DetailPokemonsPage } from './detail-pokemons.page';
+import { GetStatPipe } from 'src/app/pipes/get-stat.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailPokemonsPageRoutingModule
+    DetailPokemonsPageRoutingModule,
+    GetStatPipe
   ],
   declarations: [DetailPokemonsPage]
 })
