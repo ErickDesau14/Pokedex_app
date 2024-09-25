@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Pokemon } from '../models/pokemon';
 
 @Pipe({
-  name: 'getStart',
+  name: 'getStat',
   standalone: true
 })
 export class GetStatPipe implements PipeTransform {
