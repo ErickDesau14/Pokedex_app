@@ -1,13 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>detail-pokemons</ion-title>
-  </ion-toolbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detail-pokemons</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
 </ion-content>
