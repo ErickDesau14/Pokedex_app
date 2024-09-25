@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController, NavParams } from '@ionic/angular';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -13,7 +13,9 @@ export class ListPokemonsPage implements OnInit {
 
   constructor(
     private pokemonService: PokemonService,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private navParams: NavParams,
+    private navController: NavController
   ) {
     this.pokemons = [];
   }
@@ -49,6 +51,7 @@ export class ListPokemonsPage implements OnInit {
           if (loading) {
             loading.dismiss();
           }
+
         })
         .catch((err) => {
           if ($event) {
@@ -60,4 +63,10 @@ export class ListPokemonsPage implements OnInit {
         });
     }
   }
+
+  goToDetail(pokemon: Pokemon) {
+    this.navParams.data["pokemon"] = pokemon;
+    this.navController.navigateForward("detail-pokemons")
+  }
+
 }
